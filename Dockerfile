@@ -1,7 +1,5 @@
 FROM dylanlindgren/docker-phpcli:latest
 
-MAINTAINER "Dylan Lindgren" <dylan.lindgren@gmail.com>
-
 WORKDIR /tmp
 
 RUN apt-get update -y && \
@@ -15,9 +13,9 @@ RUN apt-get update -y && \
     php5-sqlite \
     php5-gd
 
-RUN mkdir -p /data/www
+RUN mkdir -p /data
 VOLUME ["/data"]
-WORKDIR /data/www
+WORKDIR /data
 
 ENTRYPOINT ["php", "artisan"]
 CMD ["--help"]
